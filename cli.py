@@ -67,7 +67,9 @@ def cb_human(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
 
-    click.echo('@TODO: human')
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='h')
     ctx.exit()
 
 

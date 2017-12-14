@@ -77,12 +77,19 @@ class MemoryUsage(object):
         elif option == 'g':
             uc = 1024 * 1024 * 1024
         elif option == 't':
-            uc = 1024 * 1024 * 1024
+            uc = 1024 * 1024 * 1024 * 1024
         elif option == 's':
             uc = 1000
+        elif option == 'h':
+            uc = 1024 * 1024 * 1024 * 1.0
 
         for field in memory:
-            memory[field] /= uc
+            t = memory[field] / uc
+            if option == 'h':
+                s = '{:.1f}G'.format(t)
+                memory[field] = s
+            else:
+                memory[field] = t
         pt = PrettyTable(memory.keys())
         pt.add_row(memory.values())
         print(pt)
