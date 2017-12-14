@@ -6,6 +6,8 @@
 
 __version__ = '1.0'
 
+import platform
+
 import click
 
 from core import stat
@@ -98,6 +100,9 @@ def cb_version(ctx, param, value):
 @click.option('-V', '--version', callback=cb_version, is_flag=True, help='output version information and exit')
 @click.pass_context
 def cli(ctx, **kwargs):
+    if platform.system() != 'Darwin':
+        print('only mac os is supported.')
+        ctx.exit()
     """Display amount of free and used memory in the system"""
     cb_kilo(ctx, 'kilo', True)
 
