@@ -4,49 +4,67 @@
     Memory usage command for macos.
 """
 
-__version__ = '1.0.dev0'
+__version__ = '1.0'
 
 import click
+
+from core import stat
 
 
 def cb_bytes(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: bytes')
+
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='b')
     ctx.exit()
 
 
 def cb_kilo(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: kilo')
+
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage()
     ctx.exit()
 
 
 def cb_mega(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: mega')
+
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='m')
     ctx.exit()
 
 
 def cb_giga(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: giga')
+
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='g')
     ctx.exit()
 
 
 def cb_tera(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: tera')
+
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='t')
     ctx.exit()
 
 
 def cb_human(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
+
     click.echo('@TODO: human')
     ctx.exit()
 
@@ -54,34 +72,17 @@ def cb_human(ctx, param, value):
 def cb_si(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo('@TODO: si')
-    ctx.exit()
 
-
-def cb_lohi(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-    click.echo('@TODO: lohi')
-    ctx.exit()
-
-
-def cb_old(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-    click.echo('@TODO: old')
-    ctx.exit()
-
-
-def cb_total(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-    click.echo('@TODO: total')
+    m = stat.MemoryUsage()
+    m.parse_memory_usage()
+    m.show_memory_usage(option='s')
     ctx.exit()
 
 
 def cb_version(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
+
     click.echo(__version__)
     ctx.exit()
 
@@ -94,9 +95,6 @@ def cb_version(ctx, param, value):
 @click.option('--tera', callback=cb_tera, is_flag=True, help='show output in terabytes')
 @click.option('-h', '--human', callback=cb_human, is_flag=True, help='show human-readable output')
 @click.option('--si', callback=cb_si, is_flag=True, help='use powers of 1000 not 1024')
-@click.option('-l', '--lohi', callback=cb_lohi, is_flag=True, help='show detailed low and high memory statistics')
-@click.option('-o', '--old', callback=cb_old, is_flag=True, help='use old format (without -/+buffers/cache line)')
-@click.option('-t', '--total', callback=cb_total, is_flag=True, help='show total for RAM + swap')
 @click.option('-V', '--version', callback=cb_version, is_flag=True, help='output version information and exit')
 @click.pass_context
 def cli(ctx, **kwargs):
