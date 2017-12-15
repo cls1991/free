@@ -53,9 +53,9 @@ class MemoryUsage(object):
                 vm_rows[row[0]] = int(row[1].strip('\.')) * 4096
         self.total = st_rows['hw.memsize']
         self.wired = vm_rows['Pages wired down']
-        self.active = vm_rows['Pages free']
+        self.active = vm_rows['Pages x-free']
         self.inactive = vm_rows['Pages inactive']
-        self.free = vm_rows['Pages free']
+        self.free = vm_rows['Pages x-free']
 
     def show_memory_usage(self, option='k'):
         """
@@ -67,7 +67,7 @@ class MemoryUsage(object):
             'wired': self.wired,
             'active': self.active,
             'inactive': self.inactive,
-            'free': self.free
+            'x-free': self.free
         }
         uc = 1024
         if option == 'b':

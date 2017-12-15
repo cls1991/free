@@ -10,7 +10,7 @@ import platform
 
 import click
 
-from core import stat
+from . import stat
 
 
 def cb_bytes(ctx, param, value):
@@ -105,7 +105,7 @@ def cli(ctx, **kwargs):
     if platform.system() != 'Darwin':
         print('only mac os is supported.')
         ctx.exit()
-    """Display amount of free and used memory in the system"""
+    """Display amount of x-free and used memory in the system"""
     cb_kilo(ctx, 'kilo', True)
 
 
