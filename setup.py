@@ -5,11 +5,15 @@ from setuptools import setup
 
 import free
 
+with open('README.rst', 'r') as f:
+    readme = f.read()
+
 setup(
     name='macos-free',
     version=free.__version__,
-    keywords=['memory', 'macos', 'linux', 'free'],
+    keywords=['memory', 'free'],
     description='Memory usage for macos, an alternative to free command.',
+    long_description=readme,
     author='cls1991',
     author_email='tzk19910406@hotmail.com',
     url='https://github.com/cls1991/free',
@@ -19,7 +23,7 @@ setup(
         'prettytable>=0.7.2',
         'sh>=1.12.14'
     ],
-    license='Apache 2.0',
+    license='Apache License 2.0',
     zip_safe=False,
     entry_points={
         'console_scripts': ['free = free:main']
@@ -30,12 +34,12 @@ setup(
         'Natural Language :: English',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Operating System :: MacOS'
