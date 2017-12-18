@@ -10,6 +10,9 @@ free
 .. image:: https://img.shields.io/pypi/pyversions/macos-free.svg
     :target: https://pypi.python.org/pypi/macos-free
 
+.. image:: https://travis-ci.org/cls1991/free.svg?branch=master
+    :target: https://travis-ci.org/cls1991/free
+
 Memory usage for macos,  an alternative to free command.
 
 ☤ Installation

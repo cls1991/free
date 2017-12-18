@@ -3,14 +3,12 @@
 
 from setuptools import setup
 
-import free
-
 with open('README.rst', 'r') as f:
     readme = f.read()
 
 setup(
     name='macos-free',
-    version=free.__version__,
+    version='1.0.6',
     keywords=['memory', 'free'],
     description='Memory usage for macos, an alternative to free command.',
     long_description=readme,
