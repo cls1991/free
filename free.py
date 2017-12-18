@@ -4,7 +4,7 @@
     Memory usage command for macos.
 """
 
-__version__ = '1.0.3'
+__version__ = '1.0.5'
 
 import platform
 import re
