@@ -15,10 +15,6 @@ def execute(cmd):
     return out
 
 
-def test_env():
-    print(execute(['pip', 'freeze']))
-
-
 def test_free():
     assert execute(['free'])
 
