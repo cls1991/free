@@ -20,19 +20,23 @@ def test_free():
 
 
 def test_free_b():
-    assert execute(['free', '-b']) and execute(['free', '--bytes'])
+    assert execute(['free', '-b'])
+    assert execute(['free', '--bytes'])
 
 
 def test_free_k():
-    assert execute(['free', '-k']) and execute(['free', '--kilo'])
+    assert execute(['free', '-k'])
+    assert execute(['free', '--kilo'])
 
 
 def test_free_m():
-    assert execute(['free', '-m']) and execute(['free', '--mega'])
+    assert execute(['free', '-m'])
+    assert execute(['free', '--mega'])
 
 
 def test_free_g():
-    assert execute(['free', '-g']) and execute(['free', '--giga'])
+    assert execute(['free', '-g'])
+    assert execute(['free', '--giga'])
 
 
 def test_free_tera():
@@ -40,7 +44,8 @@ def test_free_tera():
 
 
 def test_free_h():
-    assert execute(['free', '-h']) and execute(['free', '--human'])
+    assert execute(['free', '-h'])
+    assert execute(['free', '--human'])
 
 
 def test_free_si():
@@ -48,7 +53,8 @@ def test_free_si():
 
 
 def test_free_version():
-    assert execute(['free', '-V']) and execute(['free', '--version'])
+    assert execute(['free', '-V'])
+    assert execute(['free', '--version'])
 
 
 def test_free_help():
