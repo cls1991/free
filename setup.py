@@ -21,7 +21,8 @@ setup(
     install_requires=[
         'click>=6.7',
         'prettytable>=0.7.2',
-        'sh>=1.12.14'
+        'sh>=1.12.14',
+        'pytest>=3.3.1'
     ],
     license='Apache License 2.0',
     zip_safe=False,
