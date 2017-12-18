@@ -1,7 +1,9 @@
 # free
 
+[![PyPI](https://img.shields.io/pypi/l/free.svg)](https://pypi.python.org/pypi/macos-free)
+[![PyPI](https://img.shields.io/pypi/v/free.svg)](https://pypi.python.org/pypi/macos-free)
+[![PyPI](https://img.shields.io/pypi/pyversions/free.svg)](https://pypi.python.org/pypi/macos-free)
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
-[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://pypi.python.org/pypi/macos-free)
 
 Memory usage for macos,  an alternative to free command.
 
