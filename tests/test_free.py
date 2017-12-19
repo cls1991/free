@@ -8,7 +8,7 @@ def execute(cmd):
     out = None
     if cmd:
         try:
-            out, err = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+            out, err = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).communicate()
         except ValueError:
             pass
 
@@ -16,7 +16,7 @@ def execute(cmd):
 
 
 def test_free():
-    assert execute(['free'])
+    assert execute('free')
 
 
 def test_free_b():
