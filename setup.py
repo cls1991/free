@@ -8,7 +8,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='macos-free',
-    version='1.0.6',
+    version='1.0.7',
     keywords=['memory', 'free'],
     description='Memory usage for macos, an alternative to free command.',
     long_description=readme,
@@ -24,8 +24,9 @@ setup(
     ],
     license='Apache License 2.0',
     zip_safe=False,
+    platforms='any',
     entry_points={
-        'console_scripts': ['free = free:main']
+        'console_scripts': ['free = free:cli']
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',

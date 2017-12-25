@@ -4,7 +4,7 @@
     Memory usage command for macos.
 """
 
-__version__ = '1.0.6'
+__version__ = '1.0.7'
 
 import platform
 import re
@@ -195,12 +195,5 @@ def cli(ctx, **kwargs):
     cb_kilo(ctx, 'kilo', True)
 
 
-def main():
-    """
-    :return:
-    """
-    cli()
-
-
 if __name__ == '__main__':
-    main()
+    cli()
