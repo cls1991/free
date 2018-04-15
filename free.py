@@ -1,7 +1,7 @@
 # coding: utf8
 
 """
-    Memory usage command for macos.
+    Memory usage command for macOS.
 """
 
 __version__ = '1.0.7'
@@ -15,15 +15,23 @@ from prettytable import PrettyTable
 
 
 class MemoryUsage(object):
+    """
+    This information is from [Apple's support](https://support.apple.com/en-us/HT201538).
+
+    :param wired: Information in RAM that can't be moved to the Mac's drive. The amount of "Wired memory" depends on
+        the applications you are using.
+    :param active: This information is in RAM and has recently been used.
+    :param inactive: This information is in RAM but isn't actively being used, though it was recently used.
+        For example, if you've been using Mail and then quit it, the RAM that Mail was using is marked as "Inactive
+        memory". Inactive memory is available for use by another application, just like free memory. However,
+        if you open Mail before its inactive memory is used by a different application,
+        Mail will open quicker because its inactive memory is converted to active memory,
+        instead of loading it from the slower drive.
+    :param free: This is the amount of RAM that's not being used.
+    :param total: The total physical memory.
+    """
 
     def __init__(self, wired=0, active=0, inactive=0, free=0, total=0):
-        """
-        :param wired:
-        :param active:
-        :param inactive:
-        :param free:
-        :param total:
-        """
         self.wired = wired
         self.active = active
         self.inactive = inactive
@@ -31,9 +39,6 @@ class MemoryUsage(object):
         self.total = total
 
     def parse_memory_usage(self):
-        """
-        :return:
-        """
         st = sh.grep(sh.sysctl('-a'), 'mem')
         vm = sh.vm_stat()
         pattern = re.compile(':[\s]+')
@@ -63,8 +68,10 @@ class MemoryUsage(object):
 
     def show_memory_usage(self, option='k'):
         """
-        :param option:
-        :return:
+        Show memory usage information.
+
+        :param option: Display the memory usage information in 'kilobytes' unit.
+        :return: A float that represents the memory for each item, in terms of the unit specified by *option*.
         """
         memory = {
             'total': self.total,

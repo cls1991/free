@@ -13,7 +13,7 @@ free
 .. image:: https://travis-ci.org/cls1991/free.svg?branch=master
     :target: https://travis-ci.org/cls1991/free
 
-Memory usage for macos,  an alternative to free command.
+Memory usage for macOS,  an alternative to ``free`` command on Linux.
 
 ☤ Installation
 --------------
