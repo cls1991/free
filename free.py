@@ -4,7 +4,7 @@
     Memory usage command for macOS.
 """
 
-__version__ = '1.0.7'
+__version__ = '1.1.0'
 
 import platform
 import re
@@ -39,6 +39,9 @@ class MemoryUsage(object):
         self.total = total
 
     def parse_memory_usage(self):
+        """
+        Parse memory usage information.
+        """
         st = sh.grep(sh.sysctl('-a'), 'mem')
         vm = sh.vm_stat()
         pattern = re.compile(':[\s]+')

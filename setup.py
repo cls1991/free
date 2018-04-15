@@ -8,7 +8,7 @@ with open('README.rst', 'r') as f:
 
 setup(
     name='macos-free',
-    version='1.0.7',
+    version='1.1.0',
     keywords=['memory', 'free'],
     description='Memory usage for macOS, an alternative to free command.',
     long_description=readme,
