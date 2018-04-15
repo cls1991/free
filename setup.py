@@ -10,7 +10,7 @@ setup(
     name='macos-free',
     version='1.0.7',
     keywords=['memory', 'free'],
-    description='Memory usage for macos, an alternative to free command.',
+    description='Memory usage for macOS, an alternative to free command.',
     long_description=readme,
     author='cls1991',
     author_email='tzk19910406@hotmail.com',
