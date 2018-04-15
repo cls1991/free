@@ -106,74 +106,42 @@ class MemoryUsage(object):
         print(pt)
 
 
-def cb_bytes(ctx, param, value):
+def _cb_helper(ctx, param, value, option):
     if not value or ctx.resilient_parsing:
-        return
+        return None
 
     m = MemoryUsage()
     m.parse_memory_usage()
-    m.show_memory_usage(option='b')
+    m.show_memory_usage(option=option)
     ctx.exit()
+
+
+def cb_bytes(ctx, param, value):
+    return _cb_helper(ctx, param, value, 'b')
 
 
 def cb_kilo(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage()
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 'k')
 
 
 def cb_mega(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage(option='m')
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 'm')
 
 
 def cb_giga(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage(option='g')
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 'g')
 
 
 def cb_tera(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage(option='t')
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 't')
 
 
 def cb_human(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage(option='h')
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 'h')
 
 
 def cb_si(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-
-    m = MemoryUsage()
-    m.parse_memory_usage()
-    m.show_memory_usage(option='s')
-    ctx.exit()
+    return _cb_helper(ctx, param, value, 's')
 
 
 def cb_version(ctx, param, value):
@@ -196,7 +164,7 @@ def cb_version(ctx, param, value):
 @click.pass_context
 def cli(ctx, **kwargs):
     if platform.system() != 'Darwin':
-        print('only mac os is supported.')
+        print('only macOS is supported.')
         ctx.exit()
     """Display amount of free and used memory in the system"""
     cb_kilo(ctx, 'kilo', True)
